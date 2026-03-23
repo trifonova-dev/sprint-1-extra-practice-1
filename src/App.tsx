@@ -1,6 +1,7 @@
 import './App.css';
+import {TaskList} from "./TaskList.tsx";
 
-export const App = ()=> {
+export const App = () => {
     const data1 = {
         title: "What to do",
         tasks: [
@@ -55,7 +56,7 @@ export const App = ()=> {
             'Ralphie Hebert',
         ]
     }
-    const data2 =   {
+    const data2 = {
         title: "What to learn",
         tasks: [
             {taskId: 1, title: "HTML&CSS", isDone: true},
@@ -117,7 +118,14 @@ export const App = ()=> {
 
     return (
         <div className="App">
-            Здесь должны быть отрисованы данные
+            <TaskList
+                tasks={data1.tasks}
+                students={data1.students}
+                title={data1.title}/>
+            <TaskList
+                tasks={data2.tasks}
+                students={data2.students}
+                title={data2.title}/>
         </div>
     );
 }
