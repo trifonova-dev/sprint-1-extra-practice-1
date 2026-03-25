@@ -1,5 +1,8 @@
 import './App.css';
 import {TaskList} from "./TaskList.tsx";
+import {useState} from "react";
+import {FullInput} from "./FullInput.tsx";
+
 
 export const App = () => {
     const data1 = {
@@ -116,8 +119,23 @@ export const App = () => {
         ]
     }
 
+    let [message, setMessage] = useState([
+        {message: "message1"},
+        {message: "message2"},
+        {message: "message3"},
+    ])
+
+    const addMessage = (title:string) => {
+        console.log(title)
+    }
+
     return (
         <div className="App">
+            <FullInput addMessage={addMessage}/>
+            {message.map((el, index) => (
+                <div key={index}>{el.message}</div>
+            ))}
+
             <TaskList
                 tasks={data1.tasks}
                 students={data1.students}
